@@ -1,7 +1,6 @@
 package TaskThree;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class TaskThreeTest {
@@ -22,9 +21,18 @@ public class TaskThreeTest {
             e.printStackTrace();
         }
 
+        Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                Integer value1 = words.get(o1);
+                Integer value2 = words.get(o2);
+                return value1.compareTo(value2);
+            }
+        };
 
-        for (Map.Entry<String, Integer> entry : words.entrySet()) {
+        Map<String, Integer> sortedWords = new TreeMap<>(comparator.reversed());
+        sortedWords.putAll(words);
+        for (Map.Entry<String, Integer> entry : sortedWords.entrySet())
             System.out.println(entry);
         }
     }
-}
