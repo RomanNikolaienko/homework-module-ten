@@ -26,7 +26,7 @@ public class TaskThreeTest {
             public int compare(String o1, String o2) {
                 Integer value1 = words.get(o1);
                 Integer value2 = words.get(o2);
-                return value1.compareTo(value2);
+                return value1.compareTo(value2) > 0 ? 1 : -1;
             }
         };
 
