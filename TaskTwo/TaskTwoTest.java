@@ -35,6 +35,7 @@ public class TaskTwoTest {
 
         OutputStream fos = new FileOutputStream("user.json");
         fos.write(toJson.getBytes());
+        fos.close();
 
     }
 }
